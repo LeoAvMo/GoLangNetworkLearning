@@ -23,7 +23,7 @@ func Listener(t *testing.T) {
 
 		t.Logf("connection from %q", conn.RemoteAddr())
 		go func(c net.Conn) {
-			defer func() { _ = c.Close() }()
+			defer c.Close()
 			// handle connection
 		}(conn)
 	}
